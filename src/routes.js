@@ -10,6 +10,8 @@ import NotFound from './components/NotFound.vue';
 import Purchase from './components/Purchase.vue';
 import SignUp from './components/SignUp.vue';
 
+import store from './store.js';
+
 Vue.use(VueRouter);
 
 const routes = [

@@ -14,7 +14,7 @@ export default new Vuex.Store({
             state.token = myToken
         },
         storeUserInApp(state, myUser){
-            state.user- myUser
+            state.user = myUser
         }
     },
     actions:{
