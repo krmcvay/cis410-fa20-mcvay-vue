@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
+import routes from './routes.js';
 
 Vue.use(Vuex);
 
@@ -19,6 +20,10 @@ export default new Vuex.Store({
         },
         storeBooks(state, myBooks){
             state.books = myBooks
+        },
+        clearAuthData(state){
+            state.token = null;
+            state.user = null;
         }
     },
     actions:{
@@ -29,6 +34,16 @@ export default new Vuex.Store({
                 commit('storeBooks', myResponse.data)
             })
             .catch(()=>{console.log("error in getBooks action")})
+        },
+        logout({commit, state}){
+            axios.post('/customers/logout', null, {
+                headers:{
+                    Authorization: `Bearer ${state.token}`
+                }
+            });
+
+            commit('clearAuthData');
+            routes.replace("/");
         }
 
     }
