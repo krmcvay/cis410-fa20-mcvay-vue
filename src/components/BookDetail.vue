@@ -18,6 +18,9 @@
         <router-link v-else :to="`/login`">
         <button type="button" class="bth btn-outline-success">Log In to Purchase</button>
         </router-link>
+        <br/>
+        <br/>
+        <router-view></router-view>
     </div>
 </template>
 
